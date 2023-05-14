@@ -1,0 +1,44 @@
+@use "colors";
+
+:host {
+  width: 640px;
+  padding-top: 40px;
+  box-shadow: 0 0 10px colors.$white inset;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -480px 0 0 -320px;
+  background: colors.$dark_blue;
+}
+
+.tetris-wrap {
+  width: 480px;
+  padding: 45px 0 35px;
+  border: colors.$black solid;
+  border-width: 0 10px 10px;
+  margin: 0 auto;
+  position: relative;
+  &.drop {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+}
+
+.screen {
+  width: 390px;
+  height: 478px;
+  border: solid 5px;
+  border-color: colors.$dark_yellow colors.$yellow colors.$yellow colors.$dark_yellow;
+  margin: 0 auto;
+  position: relative;
+
+  .panel {
+    width: 380px;
+    height: 468px;
+    margin: 0 auto;
+    background: colors.$light_green;
+    padding: 8px;
+    border: 2px solid colors.$brown;
+  }
+}
