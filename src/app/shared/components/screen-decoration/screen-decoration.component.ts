@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TileComponent} from '../tile/tile.component';
-import {FilledTile} from "../../figures/tile/filled-tile";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TileComponent } from '../tile/tile.component';
+import { FilledTile } from '../../figures/tile/filled-tile';
 
 @Component({
   selector: 't-screen-decoration',

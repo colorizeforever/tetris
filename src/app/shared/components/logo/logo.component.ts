@@ -1,8 +1,8 @@
-import {NgClass} from '@angular/common';
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
-import {concat, Observable, timer} from 'rxjs';
-import {delay, finalize, map, repeat, startWith, takeWhile, tap} from 'rxjs/operators';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { concat, Observable, timer } from 'rxjs';
+import { delay, finalize, map, repeat, startWith, takeWhile, tap } from 'rxjs/operators';
 
 @UntilDestroy()
 @Component({
@@ -17,9 +17,7 @@ export class LogoComponent implements OnInit {
   className = '';
 
   ngOnInit(): void {
-    concat(this.run(), this.eyes())
-      .pipe(delay(5000), repeat(1000), untilDestroyed(this))
-      .subscribe();
+    concat(this.run(), this.eyes()).pipe(delay(5000), repeat(1000), untilDestroyed(this)).subscribe();
   }
 
   eyes() {

@@ -1,13 +1,13 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {combineLatest, Observable, of, timer} from "rxjs";
-import {Tile} from "@shared/figures/tile/tile";
-import {TetrisQuery} from "@state/tetris/tetris.query";
-import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
-import {GameState} from "@shared/models/enums/game-state";
-import {MatrixUtil} from "@shared/matrix/matrix";
-import {map, switchMap, takeWhile} from "rxjs/operators";
-import {TileComponent} from "@shared/components/tile/tile.component";
-import {AsyncPipe, NgForOf} from "@angular/common";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { combineLatest, Observable, of, timer } from 'rxjs';
+import { Tile } from '@shared/figures/tile/tile';
+import { TetrisQuery } from '@state/tetris/tetris.query';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { GameState } from '@shared/models/enums/game-state';
+import { MatrixUtil } from '@shared/matrix/matrix';
+import { map, switchMap, takeWhile } from 'rxjs/operators';
+import { TileComponent } from '@shared/components/tile/tile.component';
+import { AsyncPipe, NgForOf } from '@angular/common';
 
 @UntilDestroy()
 @Component({
@@ -15,12 +15,8 @@ import {AsyncPipe, NgForOf} from "@angular/common";
   templateUrl: './matrix.component.html',
   styleUrls: ['./matrix.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    TileComponent,
-    AsyncPipe,
-    NgForOf
-  ],
-  standalone: true
+  imports: [TileComponent, AsyncPipe, NgForOf],
+  standalone: true,
 })
 export class MatrixComponent implements OnInit {
   matrix$: Observable<Tile[]>;
@@ -44,15 +40,10 @@ export class MatrixComponent implements OnInit {
           switchMap((idx) => {
             const gridIndex = idx - 1;
             if (gridIndex < MatrixUtil.Height) {
-              newMatrix.splice(
-                gridIndex * MatrixUtil.Width,
-                MatrixUtil.Width,
-                ...MatrixUtil.FullRow
-              );
+              newMatrix.splice(gridIndex * MatrixUtil.Width, MatrixUtil.Width, ...MatrixUtil.FullRow);
             }
             if (gridIndex > MatrixUtil.Height && gridIndex <= rowsLength) {
-              const startIdx =
-                (MatrixUtil.Height - (gridIndex - MatrixUtil.Height)) * MatrixUtil.Width;
+              const startIdx = (MatrixUtil.Height - (gridIndex - MatrixUtil.Height)) * MatrixUtil.Width;
               newMatrix.splice(startIdx, MatrixUtil.Width, ...MatrixUtil.EmptyRow);
             }
             return of(newMatrix);

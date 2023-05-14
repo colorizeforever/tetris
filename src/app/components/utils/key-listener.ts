@@ -1,23 +1,25 @@
-import {Directive, HostListener} from "@angular/core";
-import {TetrisService} from "../../state/tetris/tetris.service";
-import {KeyboardService} from "../../state/keyboard/keyboard.service";
-import {SoundManagerService} from "../../shared/services/sound-manager.service";
-import {TetrisKeyboard} from "../../shared/models/enums/keyboard";
+import { Directive, HostListener } from '@angular/core';
+import { TetrisService } from '@state/tetris/tetris.service';
+import { KeyboardService } from '@state/keyboard/keyboard.service';
+import { SoundManagerService } from '@shared/services/sound-manager.service';
+import { TetrisKeyboard } from '@shared/models/enums/keyboard';
 
 const KeyUp = 'document:keyup';
 const KeyDown = 'document:keydown';
 
 @Directive()
 export class KeyListener {
-  constructor(  protected tetrisService: TetrisService,
-                protected keyboardService: KeyboardService,
-                private soundManager: SoundManagerService,) {
-  }
+  constructor(
+    protected tetrisService: TetrisService,
+    protected keyboardService: KeyboardService,
+    private soundManager: SoundManagerService
+  ) {}
+
   @HostListener(`${KeyDown}.${TetrisKeyboard.Left}`)
   keyDownLeft() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      left: true
+      left: true,
     });
     if (this.hasCurrent) {
       this.tetrisService.moveLeft();
@@ -29,7 +31,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.Left}`)
   keyUpLeft() {
     this.keyboardService.setKey({
-      left: false
+      left: false,
     });
   }
 
@@ -37,7 +39,7 @@ export class KeyListener {
   keyDownRight() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      right: true
+      right: true,
     });
     if (this.hasCurrent) {
       this.tetrisService.moveRight();
@@ -49,7 +51,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.Right}`)
   keyUpRight() {
     this.keyboardService.setKey({
-      right: false
+      right: false,
     });
   }
 
@@ -57,7 +59,7 @@ export class KeyListener {
   keyDownUp() {
     this.soundManager.rotate();
     this.keyboardService.setKey({
-      up: true
+      up: true,
     });
     if (this.hasCurrent) {
       this.tetrisService.rotate();
@@ -69,7 +71,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.Up}`)
   keyUpUp() {
     this.keyboardService.setKey({
-      up: false
+      up: false,
     });
   }
 
@@ -77,7 +79,7 @@ export class KeyListener {
   keyDownDown() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      down: true
+      down: true,
     });
     if (this.hasCurrent) {
       this.tetrisService.moveDown();
@@ -89,14 +91,14 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.Down}`)
   keyUpDown() {
     this.keyboardService.setKey({
-      down: false
+      down: false,
     });
   }
 
   @HostListener(`${KeyDown}.${TetrisKeyboard.Space}`)
   keyDownSpace() {
     this.keyboardService.setKey({
-      drop: true
+      drop: true,
     });
     if (this.hasCurrent) {
       this.soundManager.fall();
@@ -110,7 +112,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.Space}`)
   keyUpSpace() {
     this.keyboardService.setKey({
-      drop: false
+      drop: false,
     });
   }
 
@@ -118,7 +120,7 @@ export class KeyListener {
   keyDownHold() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      hold: true
+      hold: true,
     });
     this.tetrisService.holdPiece();
   }
@@ -126,7 +128,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.C}`)
   keyUpHold() {
     this.keyboardService.setKey({
-      hold: false
+      hold: false,
     });
   }
 
@@ -135,14 +137,14 @@ export class KeyListener {
     this.soundManager.move();
     this.tetrisService.setSound();
     this.keyboardService.setKey({
-      sound: true
+      sound: true,
     });
   }
 
   @HostListener(`${KeyUp}.${TetrisKeyboard.S}`)
   keyUpSound() {
     this.keyboardService.setKey({
-      sound: false
+      sound: false,
     });
   }
 
@@ -150,7 +152,7 @@ export class KeyListener {
   keyDownPause() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      pause: true
+      pause: true,
     });
     if (this.tetrisService.canStartGame) {
       this.tetrisService.resume();
@@ -162,7 +164,7 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.P}`)
   keyUpPause() {
     this.keyboardService.setKey({
-      pause: false
+      pause: false,
     });
   }
 
@@ -170,7 +172,7 @@ export class KeyListener {
   keyDownReset() {
     this.soundManager.move();
     this.keyboardService.setKey({
-      reset: true
+      reset: true,
     });
     this.tetrisService.pause();
     setTimeout(() => {
@@ -186,9 +188,10 @@ export class KeyListener {
   @HostListener(`${KeyUp}.${TetrisKeyboard.R}`)
   keyUpReset() {
     this.keyboardService.setKey({
-      reset: false
+      reset: false,
     });
   }
+
   get hasCurrent() {
     return this.tetrisService.hasCurrent;
   }

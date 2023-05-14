@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@datorama/akita';
-import { TetrisStore, TetrisState } from './tetris.store';
-import { map, delay, switchMap } from 'rxjs/operators';
+import { TetrisState, TetrisStore } from './tetris.store';
+import { delay, map, switchMap } from 'rxjs/operators';
 import { combineLatest, of } from 'rxjs';
-import { GameState } from "../../shared/models/enums/game-state";
+import { GameState } from '@shared/models/enums/game-state';
 
 @Injectable({ providedIn: 'root' })
 export class TetrisQuery extends Query<TetrisState> {
@@ -27,6 +27,7 @@ export class TetrisQuery extends Query<TetrisState> {
       return isLoadingOrOver ? isRenderingLogo$.pipe(delay(1800)) : isRenderingLogo$;
     })
   );
+
   constructor(protected override store: TetrisStore) {
     super(store);
   }

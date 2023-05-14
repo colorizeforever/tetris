@@ -13,7 +13,7 @@ export const SPAWN_POSITION_X = 4;
 export const SPAWN_POSITION_Y = -4;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PieceFactoryService {
   private available: (typeof Piece)[] = [];

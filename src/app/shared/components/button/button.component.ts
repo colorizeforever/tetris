@@ -1,8 +1,9 @@
 import { AsyncPipe, NgClass, NgIf, NgStyle } from '@angular/common';
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import {ArrowButton} from "../../models/enums/arrow-button";
-import {ArrowButtonTransform} from "../../constants/arrow-button-transform";
+import { ArrowButton } from '../../models/enums/arrow-button';
+import { ArrowButtonTransform } from '../../constants/arrow-button-transform';
+
 @Component({
   selector: 't-button',
   templateUrl: './button.component.html',

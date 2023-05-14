@@ -1,6 +1,6 @@
 import { PieceRotation, PieceTypes } from './piece-enum';
 import { Shape, Shapes } from './shape';
-import {MatrixUtil} from "../../matrix/matrix";
+import { MatrixUtil } from '../../matrix/matrix';
 
 export class Piece {
   x: number;
@@ -23,7 +23,7 @@ export class Piece {
       x: this.x,
       y: this.y,
       rotation: this.rotation,
-      shape: this.shape
+      shape: this.shape,
     };
     return this.newPiece();
   }

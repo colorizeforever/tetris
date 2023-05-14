@@ -1,6 +1,6 @@
-import {Tile} from "../figures/tile/tile";
-import {EmptyTile} from "../figures/tile/empty-tile";
-import {FilledTile} from "../figures/tile/filled-tile";
+import { Tile } from '../figures/tile/tile';
+import { EmptyTile } from '../figures/tile/empty-tile';
+import { FilledTile } from '../figures/tile/filled-tile';
 
 export class MatrixUtil {
   static readonly Width = 10;

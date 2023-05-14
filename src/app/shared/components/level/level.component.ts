@@ -1,7 +1,7 @@
-import {AsyncPipe, NgIf} from '@angular/common';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {NumberComponent} from '../number/number.component';
-import {TetrisQuery} from "@state/tetris/tetris.query";
+import { AsyncPipe, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NumberComponent } from '../number/number.component';
+import { TetrisQuery } from '@state/tetris/tetris.query';
 
 @Component({
   selector: 't-level',

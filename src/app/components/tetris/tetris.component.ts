@@ -1,34 +1,26 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  OnInit,
-  Renderer2,
-  ViewChild
-} from '@angular/core';
-import {AsyncPipe, NgIf} from "@angular/common";
-import {LogoComponent} from "@shared/components/logo/logo.component";
-import {SoundComponent} from "@shared/components/sound/sound.component";
-import {PauseComponent} from "@shared/components/pause/pause.component";
-import {ClockComponent} from "@shared/components/clock/clock.component";
-import {PointComponent} from "@shared/components/point/point.component";
-import {StartLineComponent} from "@shared/components/start-line/start-line.component";
-import {LevelComponent} from "@shared/components/level/level.component";
-import {NextComponent} from "@shared/components/next/next.component";
-import {HoldComponent} from "@shared/components/hold/hold.component";
-import {Observable} from "rxjs";
-import {MatrixComponent} from "../matrix/matrix.component";
-import {ResizeDirective} from "../../directives/resize.directive";
-import {KeyboardComponent} from "@shared/components/keyboard/keyboard.component";
-import {KeyListener} from "../utils/key-listener";
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { LogoComponent } from '@shared/components/logo/logo.component';
+import { SoundComponent } from '@shared/components/sound/sound.component';
+import { PauseComponent } from '@shared/components/pause/pause.component';
+import { ClockComponent } from '@shared/components/clock/clock.component';
+import { PointComponent } from '@shared/components/point/point.component';
+import { StartLineComponent } from '@shared/components/start-line/start-line.component';
+import { LevelComponent } from '@shared/components/level/level.component';
+import { NextComponent } from '@shared/components/next/next.component';
+import { HoldComponent } from '@shared/components/hold/hold.component';
+import { Observable } from 'rxjs';
+import { MatrixComponent } from '../matrix/matrix.component';
+import { ResizeDirective } from '../../directives/resize.directive';
+import { KeyboardComponent } from '@shared/components/keyboard/keyboard.component';
+import { KeyListener } from '../utils/key-listener';
+
 @Component({
   selector: 'app-tetris',
   templateUrl: './tetris.component.html',
   styleUrls: ['./tetris.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [{directive: ResizeDirective}],
+  hostDirectives: [{ directive: ResizeDirective }],
   imports: [
     AsyncPipe,
     LogoComponent,
@@ -44,15 +36,14 @@ import {KeyListener} from "../utils/key-listener";
     MatrixComponent,
     KeyboardComponent,
   ],
-  standalone: true
+  standalone: true,
 })
 export class TetrisComponent extends KeyListener implements OnInit {
-
   public readonly resizeDirective: ResizeDirective = inject(ResizeDirective, { self: true });
-
 
   drop$: Observable<boolean>;
   isShowLogo$: Observable<boolean>;
+
   ngOnInit(): void {
     this.drop$ = this.keyboardService.drop$;
     this.isShowLogo$ = this.tetrisService.isShowLogo$;
@@ -65,5 +56,4 @@ export class TetrisComponent extends KeyListener implements OnInit {
   keyboardMouseUp(key: string) {
     this[`keyUp${key}`]();
   }
-
 }

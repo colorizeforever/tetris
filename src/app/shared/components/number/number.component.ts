@@ -1,5 +1,5 @@
-import {NgClass, NgFor} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { NgClass, NgFor } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 't-number',

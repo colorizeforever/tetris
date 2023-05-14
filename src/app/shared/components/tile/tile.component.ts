@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
-import {Tile} from "../../figures/tile/tile";
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Tile } from '../../figures/tile/tile';
 
 @Component({
   selector: 't-tile',

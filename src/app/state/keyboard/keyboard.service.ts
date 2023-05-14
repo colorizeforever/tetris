@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { KeyboardQuery } from './keyboard.query';
-import { KeyboardStore, KeyboardState } from './keyboard.store';
+import { KeyboardState, KeyboardStore } from './keyboard.store';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KeyboardService {
   get drop$(): Observable<boolean> {

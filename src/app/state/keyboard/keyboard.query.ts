@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Query } from '@datorama/akita';
-import { KeyboardStore, KeyboardState } from './keyboard.store';
+import { KeyboardState, KeyboardStore } from './keyboard.store';
 
 @Injectable({ providedIn: 'root' })
 export class KeyboardQuery extends Query<KeyboardState> {

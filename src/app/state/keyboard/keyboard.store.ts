@@ -22,7 +22,7 @@ export const createInitialState = (): KeyboardState => ({
   sound: false,
   reset: false,
   drop: false,
-  hold: false
+  hold: false,
 });
 
 @Injectable({ providedIn: 'root' })

@@ -7,7 +7,7 @@ SHAPES_DOT[PieceRotation.Deg0] = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
-  [1, 0, 0, 0]
+  [1, 0, 0, 0],
 ];
 
 export class PieceDot extends Piece {
@@ -16,7 +16,7 @@ export class PieceDot extends Piece {
     this.type = PieceTypes.Dot;
     this.next = [
       [0, 0, 0, 0],
-      [1, 0, 0, 0]
+      [1, 0, 0, 0],
     ];
     this.setShapes(SHAPES_DOT);
   }

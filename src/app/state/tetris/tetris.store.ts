@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
-import {Tile} from "../../shared/figures/tile/tile";
-import {Piece} from "../../shared/figures/piece/piece";
-import {Speed} from "../../shared/models/types/speed";
-import {GameState} from "../../shared/models/enums/game-state";
-import {PieceFactoryService} from "../../shared/services/piece-factory.service";
-import {LocalStorageService} from "../../shared/services/local-storage.service";
-import {MatrixUtil} from "../../shared/matrix/matrix";
-
+import { Tile } from '@shared/figures/tile/tile';
+import { Piece } from '@shared/figures/piece/piece';
+import { Speed } from '@shared/models/types/speed';
+import { GameState } from '@shared/models/enums/game-state';
+import { PieceFactoryService } from '@shared/services/piece-factory.service';
+import { LocalStorageService } from '@shared/services/local-storage.service';
+import { MatrixUtil } from '@shared/matrix/matrix';
 
 export interface TetrisState {
   matrix: Tile[];
@@ -42,7 +41,7 @@ export const createInitialState = (pieceFactory: PieceFactoryService): TetrisSta
   speed: 1,
   gameState: GameState.Loading,
   saved: null,
-  max: LocalStorageService.maxPoint
+  max: LocalStorageService.maxPoint,
 });
 
 @Injectable({ providedIn: 'root' })

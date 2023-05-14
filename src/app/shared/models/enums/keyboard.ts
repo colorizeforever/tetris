@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 export enum TetrisKeyboard {
   Up = 'arrowup',
   Down = 'arrowdown',
@@ -8,6 +7,6 @@ export enum TetrisKeyboard {
   P = 'p',
   R = 'r',
   S = 's',
-  C = 'c'
+  C = 'c',
 }
 /* eslint-enable no-shadow */

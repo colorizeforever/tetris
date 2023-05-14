@@ -1,6 +1,6 @@
-export enum GameState { // eslint-disable-line no-shadow
+export enum GameState {
   Loading,
   Paused,
   Started,
-  Over
+  Over,
 }

@@ -7,14 +7,14 @@ SHAPES_S[PieceRotation.Deg0] = [
   [0, 0, 0, 0],
   [1, 0, 0, 0],
   [1, 1, 0, 0],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0],
 ];
 
 SHAPES_S[PieceRotation.Deg90] = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 1, 1, 0],
-  [1, 1, 0, 0]
+  [1, 1, 0, 0],
 ];
 
 export class PieceS extends Piece {
@@ -23,7 +23,7 @@ export class PieceS extends Piece {
     this.type = PieceTypes.S;
     this.next = [
       [0, 1, 1, 0],
-      [1, 1, 0, 0]
+      [1, 1, 0, 0],
     ];
     this.setShapes(SHAPES_S);
   }

@@ -1,10 +1,11 @@
-import {AsyncPipe, NgClass, NgFor} from '@angular/common';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
-import {timer} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { AsyncPipe, NgClass, NgFor } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const REFRESH_CLOCK_INTERVAL = 1000;
+
 @UntilDestroy()
 @Component({
   selector: 't-clock',

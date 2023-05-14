@@ -2,20 +2,19 @@ import { Injectable } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 import { TetrisQuery } from './tetris.query';
 import { createInitialState, TetrisStore } from './tetris.store';
-import {SoundManagerService} from "../../shared/services/sound-manager.service";
-import {GameState} from "../../shared/models/enums/game-state";
-import {MatrixUtil} from "../../shared/matrix/matrix";
-import {Speed} from "../../shared/models/types/speed";
-import {LocalStorageService} from "../../shared/services/local-storage.service";
-import {FilledTile} from "../../shared/figures/tile/filled-tile";
-import {EmptyTile} from "../../shared/figures/tile/empty-tile";
-import {CallBack} from "../../shared/models/types/callback";
-import {Tile} from "../../shared/figures/tile/tile";
-import {Piece} from "../../shared/figures/piece/piece";
-import {PieceFactoryService, SPAWN_POSITION_X, SPAWN_POSITION_Y} from "../../shared/services/piece-factory.service";
+import { SoundManagerService } from '@shared/services/sound-manager.service';
+import { GameState } from '@shared/models/enums/game-state';
+import { MatrixUtil } from '@shared/matrix/matrix';
+import { Speed } from '@shared/models/types/speed';
+import { LocalStorageService } from '@shared/services/local-storage.service';
+import { FilledTile } from '@shared/figures/tile/filled-tile';
+import { EmptyTile } from '@shared/figures/tile/empty-tile';
+import { CallBack } from '@shared/models/types/callback';
+import { Tile } from '@shared/figures/tile/tile';
+import { Piece } from '@shared/figures/piece/piece';
+import { PieceFactoryService, SPAWN_POSITION_X, SPAWN_POSITION_Y } from '@shared/services/piece-factory.service';
 
-class PieceFactory {
-}
+class PieceFactory {}
 
 @Injectable({ providedIn: 'root' })
 export class TetrisService {
@@ -78,7 +77,7 @@ export class TetrisService {
       points: 0,
       gameState: GameState.Started,
       matrix: MatrixUtil.getStartBoard(initLine),
-      speed: initSpeed
+      speed: initSpeed,
     });
     this.unsubscribe();
     this.auto(MatrixUtil.getSpeedDelay(initSpeed));
@@ -98,7 +97,7 @@ export class TetrisService {
     const { speed } = this.query.raw;
     this.store.update({
       locked: false,
-      gameState: GameState.Started
+      gameState: GameState.Started,
     });
     this.auto(MatrixUtil.getSpeedDelay(speed));
   }
@@ -109,7 +108,7 @@ export class TetrisService {
     }
     this.store.update({
       locked: true,
-      gameState: GameState.Paused
+      gameState: GameState.Paused,
     });
     this.unsubscribe();
   }
@@ -118,7 +117,7 @@ export class TetrisService {
     const { sound } = this.query.raw;
     this.store.update({
       ...createInitialState(this.pieceFactory),
-      sound
+      sound,
     });
   }
 
@@ -203,7 +202,7 @@ export class TetrisService {
   setSound() {
     const sound = this.query.raw.sound;
     this.store.update({
-      sound: !sound
+      sound: !sound,
     });
   }
 
@@ -211,7 +210,7 @@ export class TetrisService {
     const { initSpeed } = this.query.raw;
     const newSpeed = (initSpeed - 1 < 1 ? 6 : initSpeed - 1) as Speed;
     this.store.update({
-      initSpeed: newSpeed
+      initSpeed: newSpeed,
     });
   }
 
@@ -219,7 +218,7 @@ export class TetrisService {
     const { initSpeed } = this.query.raw;
     const newSpeed = (initSpeed + 1 > 6 ? 1 : initSpeed + 1) as Speed;
     this.store.update({
-      initSpeed: newSpeed
+      initSpeed: newSpeed,
     });
   }
 
@@ -227,7 +226,7 @@ export class TetrisService {
     const { initLine } = this.query.raw;
     const startLine = initLine + 1 > 10 ? 1 : initLine + 1;
     this.store.update({
-      initLine: startLine
+      initLine: startLine,
     });
   }
 
@@ -235,7 +234,7 @@ export class TetrisService {
     const { initLine } = this.query.raw;
     const startLine = initLine - 1 < 1 ? 10 : initLine - 1;
     this.store.update({
-      initLine: startLine
+      initLine: startLine,
     });
   }
 
@@ -304,7 +303,7 @@ export class TetrisService {
       ...createInitialState(this.pieceFactory),
       max: maxPoint,
       gameState: GameState.Over,
-      sound
+      sound,
     });
   }
 
@@ -377,7 +376,7 @@ export class TetrisService {
     this.store.update({
       points: newPoints,
       clearedLines: newLines,
-      speed: newSpeed
+      speed: newSpeed,
     });
 
     if (newSpeed !== speed) {
@@ -407,37 +406,37 @@ export class TetrisService {
 
   private setNext() {
     this.store.update({
-      next: this.pieceFactory.getRandomPiece()
+      next: this.pieceFactory.getRandomPiece(),
     });
   }
 
   private setCurrentPiece(piece: Piece) {
     this.store.update({
-      current: piece
+      current: piece,
     });
   }
 
   private setMatrix(matrix: Tile[]) {
     this.store.update({
-      matrix
+      matrix,
     });
   }
 
   private setLocked(locked: boolean) {
     this.store.update({
-      locked
+      locked,
     });
   }
 
   private setHolded(piece: Piece): void {
     this.store.update({
-      hold: piece
+      hold: piece,
     });
   }
 
   private setCanHold(canHoldPiece: boolean) {
     this.store.update({
-      canHold: canHoldPiece
+      canHold: canHoldPiece,
     });
   }
 

@@ -1,22 +1,14 @@
-import {
-  Directive,
-  ElementRef,
-  HostListener,
-  Input,
-  OnInit,
-  Renderer2,
-  SimpleChanges
-} from "@angular/core";
-import {TetrisService} from "../state/tetris/tetris.service";
-import {KeyboardService} from "../state/keyboard/keyboard.service";
-import {SoundManagerService} from "../shared/services/sound-manager.service";
+import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { TetrisService } from '@state/tetris/tetris.service';
+import { KeyboardService } from '@state/keyboard/keyboard.service';
+import { SoundManagerService } from '@shared/services/sound-manager.service';
 
 @Directive({
   selector: '[resize]',
   standalone: true,
 })
 export class ResizeDirective implements OnInit {
-  @Input() test: boolean
+  @Input() test: boolean;
 
   @Input() key: string;
 
@@ -27,21 +19,20 @@ export class ResizeDirective implements OnInit {
     private keyboardService: KeyboardService,
     private soundManager: SoundManagerService,
     private el: ElementRef,
-    private render: Renderer2,
-  ) {
-  }
+    private render: Renderer2
+  ) {}
 
-  ngOnChanges(changes:SimpleChanges) {
-    console.log('changes', changes)
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes);
   }
 
   ngOnInit() {
-    this.resize()
+    this.resize();
   }
 
   @HostListener('window:resize', ['$event'])
   resize() {
-    if(this.test) return;
+    if (this.test) return;
     const width = document.documentElement.clientWidth;
     const height = document.documentElement.clientHeight;
     const ratio = height / width;
@@ -66,6 +57,7 @@ export class ResizeDirective implements OnInit {
       event.returnValue = true;
     }
   }
+
   get hasCurrent() {
     return this.tetrisService.hasCurrent;
   }

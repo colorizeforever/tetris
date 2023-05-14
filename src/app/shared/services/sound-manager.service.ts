@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { TetrisQuery } from "../../state/tetris/tetris.query";
+import { TetrisQuery } from '@state/tetris/tetris.query';
 
 const SOUND_FILE_PATH = '../../../assets/tetris-sound.mp3';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SoundManagerService {
   private context!: AudioContext;
