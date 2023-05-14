@@ -1,11 +1,12 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: '[t-shared-button]', //eslint-disable-line
-  standalone: true,
+  selector: '[t-shared-button]',
   templateUrl: './shared-button.component.html',
   styleUrls: ['./shared-button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class SharedButtonComponent {
   @HostBinding('class') className = 'twitter-button';

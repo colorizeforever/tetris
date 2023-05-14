@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TetrisComponent} from "./components/tetris/tetris.component";
+import {TetrisComponent} from "@components/tetris/tetris.component";
 
 @Component({
   selector: 'app-root',

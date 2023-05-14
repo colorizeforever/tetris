@@ -1,14 +1,15 @@
 import { AsyncPipe, NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { Observable } from 'rxjs';
 import {ArrowButton} from "../../models/enums/arrow-button";
 import {ArrowButtonTransform} from "../../constants/arrow-button-transform";
 @Component({
   selector: 't-button',
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgClass, NgStyle, NgIf, AsyncPipe],
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
   @Input() className = '';

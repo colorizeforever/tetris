@@ -1,19 +1,20 @@
-import { AsyncPipe, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Observable, of, timer } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { NumberComponent } from '../number/number.component';
-import {TetrisQuery} from "../../../state/tetris/tetris.query";
+import {AsyncPipe, NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import {Observable, of, timer} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
+import {NumberComponent} from '../number/number.component';
+import {TetrisQuery} from "@state/tetris/tetris.query";
 
 const REFRESH_LABEL_INTERVAL = 3000;
 @UntilDestroy()
 @Component({
   selector: 't-point',
+  templateUrl: './point.component.html',
+  styleUrls: ['./point.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NumberComponent, NgIf, AsyncPipe],
-  templateUrl: './point.component.html',
-  styleUrls: ['./point.component.scss']
 })
 export class PointComponent {
   labelAndPoints$: Observable<LabelAndNumber> = this.query.hasCurrent$.pipe(

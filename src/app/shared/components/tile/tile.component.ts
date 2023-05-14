@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Renderer2, ElementRef } from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {Tile} from "../../figures/tile/tile";
 
 @Component({
   selector: 't-tile',
-  standalone: true,
   template: ``,
-  styleUrls: ['./tile.component.scss']
+  styleUrls: ['./tile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class TileComponent implements OnInit {
   @Input() tile: Tile;

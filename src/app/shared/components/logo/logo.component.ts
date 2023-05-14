@@ -1,16 +1,17 @@
-import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { concat, Observable, timer } from 'rxjs';
-import { delay, finalize, map, repeat, startWith, takeWhile, tap } from 'rxjs/operators';
+import {NgClass} from '@angular/common';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
+import {concat, Observable, timer} from 'rxjs';
+import {delay, finalize, map, repeat, startWith, takeWhile, tap} from 'rxjs/operators';
 
 @UntilDestroy()
 @Component({
   selector: 't-logo',
+  templateUrl: './logo.component.html',
+  styleUrls: ['./logo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgClass],
-  templateUrl: './logo.component.html',
-  styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent implements OnInit {
   className = '';

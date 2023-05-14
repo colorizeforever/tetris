@@ -1,19 +1,20 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ButtonComponent } from '../button/button.component';
+import {AsyncPipe} from '@angular/common';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {ButtonComponent} from '../button/button.component';
 import {GameState} from "../../models/enums/game-state";
-import {KeyboardQuery} from "../../../state/keyboard/keyboard.query";
-import {TetrisQuery} from "../../../state/tetris/tetris.query";
+import {KeyboardQuery} from "@state/keyboard/keyboard.query";
+import {TetrisQuery} from "@state/tetris/tetris.query";
 import {ArrowButton} from "../../models/enums/arrow-button";
 
 @Component({
   selector: 't-keyboard',
+  templateUrl: './keyboard.component.html',
+  styleUrls: ['./keyboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [ButtonComponent, AsyncPipe],
-  templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.scss']
 })
 export class KeyboardComponent {
   @Input() filling = 20;

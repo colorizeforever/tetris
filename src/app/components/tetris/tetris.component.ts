@@ -1,23 +1,33 @@
-import {Component, ElementRef, HostListener, inject, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  OnInit,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
 import {AsyncPipe, NgIf} from "@angular/common";
-import {LogoComponent} from "../../shared/components/logo/logo.component";
-import {SoundComponent} from "../../shared/components/sound/sound.component";
-import {PauseComponent} from "../../shared/components/pause/pause.component";
-import {ClockComponent} from "../../shared/components/clock/clock.component";
-import {PointComponent} from "../../shared/components/point/point.component";
-import {StartLineComponent} from "../../shared/components/start-line/start-line.component";
-import {LevelComponent} from "../../shared/components/level/level.component";
-import {NextComponent} from "../../shared/components/next/next.component";
-import {HoldComponent} from "../../shared/components/hold/hold.component";
+import {LogoComponent} from "@shared/components/logo/logo.component";
+import {SoundComponent} from "@shared/components/sound/sound.component";
+import {PauseComponent} from "@shared/components/pause/pause.component";
+import {ClockComponent} from "@shared/components/clock/clock.component";
+import {PointComponent} from "@shared/components/point/point.component";
+import {StartLineComponent} from "@shared/components/start-line/start-line.component";
+import {LevelComponent} from "@shared/components/level/level.component";
+import {NextComponent} from "@shared/components/next/next.component";
+import {HoldComponent} from "@shared/components/hold/hold.component";
 import {Observable} from "rxjs";
 import {MatrixComponent} from "../matrix/matrix.component";
 import {ResizeDirective} from "../../directives/resize.directive";
-import {KeyboardComponent} from "../../shared/components/keyboard/keyboard.component";
+import {KeyboardComponent} from "@shared/components/keyboard/keyboard.component";
 import {KeyListener} from "../utils/key-listener";
 @Component({
   selector: 'app-tetris',
   templateUrl: './tetris.component.html',
   styleUrls: ['./tetris.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [{directive: ResizeDirective}],
   imports: [
     AsyncPipe,

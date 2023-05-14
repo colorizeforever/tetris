@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {combineLatest, Observable, of, timer} from "rxjs";
-import {Tile} from "../../shared/figures/tile/tile";
-import {TetrisQuery} from "../../state/tetris/tetris.query";
+import {Tile} from "@shared/figures/tile/tile";
+import {TetrisQuery} from "@state/tetris/tetris.query";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
-import {GameState} from "../../shared/models/enums/game-state";
-import {MatrixUtil} from "../../shared/matrix/matrix";
+import {GameState} from "@shared/models/enums/game-state";
+import {MatrixUtil} from "@shared/matrix/matrix";
 import {map, switchMap, takeWhile} from "rxjs/operators";
-import {TileComponent} from "../../shared/components/tile/tile.component";
+import {TileComponent} from "@shared/components/tile/tile.component";
 import {AsyncPipe, NgForOf} from "@angular/common";
 
 @UntilDestroy()
@@ -14,6 +14,7 @@ import {AsyncPipe, NgForOf} from "@angular/common";
   selector: 't-matrix',
   templateUrl: './matrix.component.html',
   styleUrls: ['./matrix.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TileComponent,
     AsyncPipe,
