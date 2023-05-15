@@ -1,7 +1,5 @@
 const ANGULAR_TETRIS_STORAGE_KEY = 'ANGULAR_TETRIS';
 export class LocalStorageService {
-  constructor() {}
-
   static setMaxPoint(max: number) {
     localStorage.setItem(ANGULAR_TETRIS_STORAGE_KEY, `${max}`);
   }

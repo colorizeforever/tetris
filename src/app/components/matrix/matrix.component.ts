@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { combineLatest, Observable, of, timer } from 'rxjs';
+import { Observable, combineLatest, of, timer } from 'rxjs';
 import { Tile } from '@shared/figures/tile/tile';
 import { TetrisQuery } from '@state/tetris/tetris.query';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';

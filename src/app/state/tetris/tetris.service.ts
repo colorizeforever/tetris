@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 import { TetrisQuery } from './tetris.query';
-import { createInitialState, TetrisStore } from './tetris.store';
+import { TetrisStore, createInitialState } from './tetris.store';
 import { SoundManagerService } from '@shared/services/sound-manager.service';
 import { GameState } from '@shared/models/enums/game-state';
 import { MatrixUtil } from '@shared/matrix/matrix';

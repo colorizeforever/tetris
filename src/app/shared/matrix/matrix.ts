@@ -9,7 +9,7 @@ export class MatrixUtil {
   static MaxPoint = 999999;
   static SpeedDelay = [700, 600, 450, 320, 240, 160];
 
-  static getStartBoard(startLines: number = 0): Tile[] {
+  static getStartBoard(startLines = 0): Tile[] {
     if (startLines === 0) {
       return new Array(this.Width * this.Height).fill(new EmptyTile());
     }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { LogoComponent } from '@shared/components/logo/logo.component';
 import { SoundComponent } from '@shared/components/sound/sound.component';
