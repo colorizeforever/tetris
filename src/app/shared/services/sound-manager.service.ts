@@ -68,7 +68,6 @@ export class SoundManagerService {
           },
           () => {
             const msg = 'Cannot play sound.';
-            alert(msg);
             reject(msg);
           }
         );
