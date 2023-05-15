@@ -22,7 +22,7 @@
                 "src/app/styles"
               ]
             },
-            "outputPath": "dist/tetris",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
