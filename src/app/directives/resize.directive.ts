@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { TetrisService } from '@state/tetris/tetris.service';
 import { KeyboardService } from '@state/keyboard/keyboard.service';
 import { SoundManagerService } from '@shared/services/sound-manager.service';
@@ -7,7 +7,7 @@ import { SoundManagerService } from '@shared/services/sound-manager.service';
   selector: '[resize]',
   standalone: true,
 })
-export class ResizeDirective implements OnInit {
+export class ResizeDirective implements OnInit, OnChanges {
   @Input() test: boolean;
 
   @Input() key: string;

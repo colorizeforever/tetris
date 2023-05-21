@@ -14,8 +14,6 @@ import { Tile } from '@shared/figures/tile/tile';
 import { Piece } from '@shared/figures/piece/piece';
 import { PieceFactoryService, SPAWN_POSITION_X, SPAWN_POSITION_Y } from '@shared/services/piece-factory.service';
 
-class PieceFactory {}
-
 @Injectable({ providedIn: 'root' })
 export class TetrisService {
   gameInterval: Subscription;
